@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
+import Topbar from '@/components/Topbar';
 import heroRef from '@/lib/skills-ref-hero';
 import insightsRef from '@/lib/skills-ref-insights';
 import meetingRef from '@/lib/skills-ref-meeting';
@@ -42,13 +43,9 @@ export default function SkillsPage(){
   const displayedScore=Math.round(score*(targetScore/82));
   const captureTitle=(typeof analysisContent.captureTitle==='string'?analysisContent.captureTitle:FALLBACK_COPY.capture).replaceAll(' ','\n');
 
-  return <main className={styles.page} style={{paddingLeft:'94px'}}>
+  return <main className={styles.page} style={{paddingLeft:'94px','--header-height':'104px'} as React.CSSProperties}>
   <Sidebar />
-  <header className={styles.skillsHeader}>
-    <h1>Skills</h1>
-    <div className={styles.search}><span>⌕</span><p>Buscar reunião, pessoa ou gravação</p><kbd>⌘ K</kbd></div>
-    <div className={styles.account}><button><span>♛</span> {cms.profile.plan_label || 'Plano Pro'} <b>⌄</b></button><div className={styles.avatar}>{cms.profile.avatar_url?<img src={cms.profile.avatar_url} alt="Perfil" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}}/>:<i/>}<em/></div></div>
-  </header>
+  <Topbar />
   <section className={styles.board}>
     <article className={`${styles.card} ${styles.heroCard}`}><div className={styles.heroMedia} style={{backgroundImage:`url(${heroMedia})`}}/><div className={styles.heroShade}/><div className={styles.heroTop}><p>{hero.subtitle || FALLBACK_COPY.eyebrow}</p><h2>{hero.title || 'Skills'}</h2><h3>{hero.body || 'Inteligência que transforma suas reuniões em resultados.'}</h3></div><div className={styles.heroBottom}><i/><p>{typeof heroContent.insightsLabel==='string'?heroContent.insightsLabel:FALLBACK_COPY.insights}</p><strong>{typeof heroContent.insightsTitle==='string'?heroContent.insightsTitle:'Mais que reuniões. Evolução.'}</strong><button><span>▷</span>{typeof heroContent.ctaLabel==='string'?heroContent.ctaLabel:'Explorar agora'}</button></div></article>
 
