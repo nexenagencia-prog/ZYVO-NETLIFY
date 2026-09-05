@@ -27,16 +27,17 @@ test('CMS admin route requires Supabase authentication and exposes main editors'
   assert.match(source,/cms-media/);
 });
 
-test('CMS login exposes password recovery and auth client supports reset flow',()=>{
-  const login=read('src/app/cms/page.tsx');
+test('CMS exposes password recovery and a screen to register a new password',()=>{
+  const recover=read('src/app/cms/recuperar-senha/page.tsx');
   const auth=read('src/lib/cms/auth.ts');
   const reset=read('src/app/cms/nova-senha/page.tsx');
-  assert.match(login,/Esqueci minha senha/);
-  assert.match(login,/requestPasswordReset/);
+  assert.match(recover,/requestPasswordReset/);
+  assert.match(recover,/Enviar link de recuperação/);
   assert.match(auth,/auth\/v1\/recover/);
   assert.match(auth,/updatePassword/);
   assert.match(reset,/Nova senha/);
   assert.match(reset,/Confirmar nova senha/);
+  assert.match(reset,/Cadastrar nova senha/);
 });
 
 test('public pages consume CMS content with local fallback',()=>{
