@@ -4,6 +4,8 @@ import { FormEvent, useState } from 'react';
 import { requestPasswordReset } from '@/lib/cms/auth';
 import styles from '../cms.module.css';
 
+const CMS_ORIGIN='https://curious-profiterole-edfa59.netlify.app';
+
 export default function RecoverPasswordPage(){
   const[email,setEmail]=useState('evosummitspace@gmail.com');
   const[busy,setBusy]=useState(false);
@@ -14,7 +16,7 @@ export default function RecoverPasswordPage(){
     event.preventDefault();
     setBusy(true);setError('');setMessage('');
     try{
-      await requestPasswordReset(email.trim(),`${window.location.origin}/cms/nova-senha`);
+      await requestPasswordReset(email.trim(),`${CMS_ORIGIN}/cms/nova-senha`);
       setMessage('Link enviado. Abra o e-mail e clique no link para cadastrar sua nova senha.');
     }catch(e){setError(e instanceof Error?e.message:'Não foi possível enviar o link.')}finally{setBusy(false)}
   };
@@ -22,7 +24,7 @@ export default function RecoverPasswordPage(){
   return <main className={styles.loginShell}><section className={styles.loginCard}>
     <div className={styles.brand}>ZYVO <span>CMS</span></div>
     <h1>Recuperar acesso.</h1>
-    <p>Enviaremos um link seguro para cadastrar uma nova senha do CMS.</p>
+    <p>Enviaremos um link seguro para cadastrar uma nova senha do CMS no projeto Netlify.</p>
     <form onSubmit={submit}>
       <label>E-mail<input type="email" value={email} onChange={e=>setEmail(e.target.value)} required autoComplete="email"/></label>
       {error&&<div className={styles.error}>{error}</div>}
