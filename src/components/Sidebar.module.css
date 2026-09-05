@@ -1,0 +1,71 @@
+.unifiedRail{
+  left:7px;
+  top:8px;
+  bottom:16px;
+  width:70px;
+  padding:13px 0 14px;
+  align-items:stretch;
+  overflow:hidden;
+  border-radius:31px;
+  border:1px solid rgba(255,255,255,.05);
+  background:linear-gradient(180deg,rgba(18,23,38,.955),rgba(10,15,27,.985));
+  box-shadow:0 20px 48px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.022);
+  transition:width .34s cubic-bezier(.22,.75,.2,1),background-color .28s ease,box-shadow .28s ease;
+}
+
+.expanded{
+  width:222px;
+  background:linear-gradient(180deg,rgba(18,23,38,.982),rgba(10,16,27,.99));
+  box-shadow:18px 0 54px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.profileRow{
+  display:flex;
+  align-items:center;
+  min-height:51px;
+  padding:0 12px;
+  gap:11px;
+}
+
+.profileVisual{width:46px;min-width:46px;display:flex;flex-direction:column;align-items:center;gap:6px}
+
+.profileRow :global(.rail-avatar){
+  width:44px;
+  height:44px;
+  min-width:44px;
+  min-height:44px;
+  flex:0 0 44px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.14);
+  box-shadow:0 0 0 2px rgba(255,255,255,.015);
+}
+
+.profileRow :global(.rail-avatar img){width:100%;height:100%;min-width:100%;min-height:100%;border-radius:50%;object-fit:cover;object-position:center}
+.profileRow :global(.avatar-monogram){width:100%;height:100%;border-radius:50%}
+.performanceMiniTrack{width:36px;height:2px;border-radius:999px;background:rgba(255,255,255,.11);overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
+.performanceMiniTrack span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#f4a06f,#ff8cc2);box-shadow:0 0 7px rgba(255,145,167,.32)}
+
+.profileMeta{min-width:0;width:0;opacity:0;transform:translateX(-7px);pointer-events:none;transition:opacity .2s ease .02s,transform .28s ease,width .28s ease}
+.expanded .profileMeta{width:142px;opacity:1;transform:translateX(0);pointer-events:auto}
+.profileNameField{width:100%;border:0;outline:0;background:transparent;color:#f4f7fa;font-size:12.5px;font-weight:380;letter-spacing:-.012em;padding:0}
+.profileRole{display:block;margin-top:3px;color:rgba(226,236,244,.4);font-size:9.5px;font-weight:330}
+.fileInput{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.nav{margin-top:20px;width:100%;display:flex;flex-direction:column;gap:7px}
+.navItem{position:relative;width:46px;min-width:46px;height:46px;display:flex;align-items:center;color:rgba(236,239,246,.74);border-radius:50%;margin:0 12px;overflow:hidden;transition:width .28s cubic-bezier(.22,.75,.2,1),background-color .18s ease,color .18s ease,box-shadow .18s ease,border-radius .28s ease}
+.expanded .navItem{width:194px;border-radius:15px}
+.navItem:hover{color:#fff;background:rgba(255,255,255,.04)}
+.selected{color:#151522;background:linear-gradient(145deg,#ff9fce,#f58bc3 68%,#e97eb5);box-shadow:0 8px 20px rgba(238,124,182,.19),inset 0 1px 0 rgba(255,255,255,.38)}
+.selected:hover{color:#11121b;background:linear-gradient(145deg,#ffa9d3,#f790c5 68%,#eb81b8)}
+.itemIcon{width:46px;min-width:46px;height:46px;display:grid;place-items:center}
+.itemIcon svg{width:20px;height:20px;display:block;stroke-width:1.2}
+.itemLabel{white-space:nowrap;opacity:0;transform:translateX(-5px);font-size:11.5px;font-weight:330;letter-spacing:-.006em;transition:opacity .2s ease,transform .28s cubic-bezier(.22,.75,.2,1)}
+.expanded .itemLabel{opacity:1;transform:translateX(0)}
+.bottomControl{margin-top:auto;height:46px;display:flex;align-items:center;padding:0 12px}
+.toggleButton{width:46px;height:46px;border:0;border-radius:50%;background:transparent;color:rgba(232,237,244,.72);display:grid;place-items:center;cursor:pointer;transition:background-color .18s ease,color .18s ease,transform .28s ease}
+.toggleButton:hover{background:rgba(255,255,255,.04);color:#fff}
+.toggleButton svg{width:17px;height:17px;stroke-width:1.2;transition:transform .3s cubic-bezier(.22,.75,.2,1)}
+.expanded .toggleButton svg{transform:rotate(180deg)}
+@media(max-width:620px){.unifiedRail{width:64px;left:5px}.expanded{width:min(222px,82vw)}.profileRow{padding:0 9px}.profileVisual{width:44px;min-width:44px}.profileRow :global(.rail-avatar){width:42px;height:42px;min-width:42px;min-height:42px;flex-basis:42px}.navItem{margin:0 9px}}
+@media(prefers-reduced-motion:reduce){.unifiedRail,.profileMeta,.navItem,.itemLabel,.toggleButton svg{transition:none}}

@@ -1,0 +1,10 @@
+.nativeFaceScan{position:absolute;z-index:2;left:53.5%;top:14.5%;width:min(29vw,450px);height:58vh;min-height:430px;pointer-events:none;overflow:hidden;border-radius:42%;mix-blend-mode:screen;opacity:.82}
+.nativeScanLine{position:absolute;left:12%;right:11%;top:7%;height:1px;background:linear-gradient(90deg,transparent,rgba(221,240,252,.18) 14%,rgba(245,251,255,.78) 50%,rgba(221,240,252,.18) 86%,transparent);box-shadow:0 0 10px rgba(199,231,250,.18);animation-name:scannerTravel;animation-duration:4.8s;animation-timing-function:cubic-bezier(.45,0,.55,1);animation-iteration-count:infinite;animation-direction:alternate}
+.nativeLineGlow{position:absolute;inset:10% 12% 14%;border-radius:45%;background:radial-gradient(circle at 50% 44%,rgba(225,240,250,.10),rgba(225,240,250,.035) 38%,transparent 68%);filter:blur(5px);animation:nativeLineBreath 4.6s ease-in-out infinite}
+@keyframes scannerTravel{0%{transform:translateY(0);opacity:.22}12%{opacity:.72}88%{opacity:.72}100%{transform:translateY(405px);opacity:.22}}
+@keyframes nativeLineBreath{0%,100%{opacity:.16;transform:scale(.995)}50%{opacity:.42;transform:scale(1.008)}}
+@media(max-width:1380px){.nativeFaceScan{left:53%;width:31vw}}
+@media(max-width:1120px){.nativeFaceScan{left:52%;width:36vw;opacity:.62}}
+@media(max-width:900px){.nativeFaceScan{left:49%;top:18%;width:43vw;height:52vh}}
+@media(max-width:620px){.nativeFaceScan{display:none}}
+@media(prefers-reduced-motion:reduce){.nativeScanLine,.nativeLineGlow{animation:none!important}.nativeScanLine{opacity:.36}.nativeLineGlow{opacity:.18}}

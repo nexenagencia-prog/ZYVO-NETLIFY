@@ -1,0 +1,46 @@
+.hero-copy .eyebrow{
+  color:rgba(196,204,214,.64);
+  font-size:12px;
+  font-weight:450;
+  letter-spacing:.34em;
+  margin-bottom:28px;
+}
+
+.hero-copy h1{
+  color:#f4f5f7;
+  font-size:clamp(58px,4.7vw,86px);
+  line-height:.98;
+  font-weight:270;
+  letter-spacing:-.058em;
+  text-shadow:0 1px 1px rgba(255,255,255,.03);
+}
+
+.hero-copy h1 span{
+  color:#c2c8d0;
+  font-weight:270;
+}
+
+.hero-copy .lead{
+  max-width:510px;
+  margin-top:30px;
+  color:rgba(224,228,233,.82);
+  font-size:19px;
+  line-height:1.58;
+  font-weight:320;
+  letter-spacing:-.022em;
+}
+
+@media(max-width:1380px){
+  .hero-copy h1{font-size:64px}
+  .hero-copy .lead{font-size:18px}
+}
+
+@media(max-width:1120px){
+  .hero-copy h1{font-size:56px}
+  .hero-copy .lead{font-size:17px}
+}
+
+@media(max-width:900px){
+  .hero-copy h1{font-size:clamp(46px,8vw,58px)}
+  .hero-copy .lead{font-size:17px}
+}
