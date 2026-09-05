@@ -40,6 +40,15 @@ test('CMS exposes password recovery and a screen to register a new password',()=
   assert.match(reset,/Cadastrar nova senha/);
 });
 
+test('CMS auth flow is pinned to the Netlify production host',()=>{
+  const recover=read('src/app/cms/recuperar-senha/page.tsx');
+  const canonical=read('src/app/cms/CmsCanonicalHost.tsx');
+  const layout=read('src/app/cms/layout.tsx');
+  for(const source of [recover,canonical]) assert.match(source,/curious-profiterole-edfa59\.netlify\.app/);
+  assert.match(canonical,/window\.location\.replace/);
+  assert.match(layout,/CmsCanonicalHost/);
+});
+
 test('public pages consume CMS content with local fallback',()=>{
   const home=read('src/app/page.tsx');
   const skills=read('src/app/skills/page.tsx');
