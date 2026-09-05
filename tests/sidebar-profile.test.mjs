@@ -32,6 +32,13 @@ test('sidebar keeps icons anchored while labels reveal smoothly', () => {
   assert.match(sidebarCss, /\.expanded\s+\.itemLabel/);
 });
 
+test('sidebar keeps the profile clear of the logo and centers collapsed icons', () => {
+  assert.match(sidebarCss, /\.profileRow\{[\s\S]*?margin-top:\s*72px/);
+  assert.match(sidebarCss, /\.navItem\{[\s\S]*?margin:\s*0 auto/);
+  assert.match(sidebarCss, /\.expanded\s+\.navItem\{[\s\S]*?margin:\s*0 12px/);
+  assert.match(sidebarCss, /\.bottomControl\{[\s\S]*?justify-content:\s*center/);
+});
+
 test('sidebar uses a clean collapse control instead of an X button', () => {
   assert.match(sidebar, /aria-label=\{open \? 'Recolher menu' : 'Expandir menu'\}/);
   assert.doesNotMatch(sidebar, />×</);
