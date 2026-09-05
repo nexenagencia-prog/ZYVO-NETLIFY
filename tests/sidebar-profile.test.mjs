@@ -5,6 +5,8 @@ import { readFileSync } from 'node:fs';
 const sidebar = readFileSync(new URL('../src/components/Sidebar.tsx', import.meta.url), 'utf8');
 const sidebarCss = readFileSync(new URL('../src/components/Sidebar.module.css', import.meta.url), 'utf8');
 const page = readFileSync(new URL('../src/app/page.tsx', import.meta.url), 'utf8');
+const skillsPage = readFileSync(new URL('../src/app/skills/page.tsx', import.meta.url), 'utf8');
+const featurePage = readFileSync(new URL('../src/app/[...slug]/page.tsx', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../src/app/globals.css', import.meta.url), 'utf8');
 const scanCss = readFileSync(new URL('../src/app/faceScan.module.css', import.meta.url), 'utf8');
 
@@ -37,6 +39,14 @@ test('sidebar keeps the profile clear of the logo and centers collapsed icons', 
   assert.match(sidebarCss, /\.navItem\{[\s\S]*?margin:\s*0 auto/);
   assert.match(sidebarCss, /\.expanded\s+\.navItem\{[\s\S]*?margin:\s*0 12px/);
   assert.match(sidebarCss, /\.bottomControl\{[\s\S]*?justify-content:\s*center/);
+});
+
+test('expanded sidebar changes the shared app rail offset so every route reflows', () => {
+  assert.match(sidebar, /--app-rail-offset/);
+  assert.match(sidebar, /open\s*\?\s*'238px'\s*:\s*'86px'/);
+  assert.match(css, /margin-left:\s*var\(--app-rail-offset/);
+  assert.match(skillsPage, /paddingLeft:\s*'var\(--app-rail-offset,94px\)'/);
+  assert.match(featurePage, /calc\(var\(--app-rail-offset,86px\) \+ 18px\)/);
 });
 
 test('sidebar uses a clean collapse control instead of an X button', () => {
