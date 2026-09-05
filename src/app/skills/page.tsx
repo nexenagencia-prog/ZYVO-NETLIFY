@@ -5,7 +5,6 @@ import Sidebar from '@/components/Sidebar';
 import heroRef from '@/lib/skills-ref-hero';
 import insightsRef from '@/lib/skills-ref-insights';
 import meetingRef from '@/lib/skills-ref-meeting';
-import analysisRef from '@/lib/skills-ref-analysis';
 import styles from './skills.module.css';
 
 const metrics=[['Comunicação',88],['Clareza',91],['Escuta',84],['Objetividade',76],['Perguntas',89],['Condução',85]] as const;
@@ -25,6 +24,6 @@ export default function SkillsPage(){const[score,setScore]=useState(0);useEffect
 
     <div className={styles.sideCards}><article className={`${styles.card} ${styles.insightCard}`}><div className={`${styles.cardMedia} ${styles.insightMedia}`} style={{backgroundImage:`url(${insightsRef})`}}/><div className={styles.cardShade}/><div className={styles.sideContent}><span className={styles.bookIcon}>▢</span><h3>Insights e Conteúdo</h3><p>Artigos e guias sobre IA,<br/>comunicação e produtividade.</p><button>→</button></div></article><article className={`${styles.card} ${styles.meetingCard}`}><div className={`${styles.cardMedia} ${styles.meetingMedia}`} style={{backgroundImage:`url(${meetingRef})`}}/><div className={styles.cardShade}/><div className={styles.sideContent}><span className={styles.bookIcon}>▣</span><h3>Analisar Reuniões</h3><p>Reviva conversas, identifique<br/>pontos-chave e gere insights.</p><button>→</button></div></article></div>
 
-    <article className={`${styles.card} ${styles.analysisCard}`}><div className={styles.analysisCopy}><div className={styles.cameraIcon}>▣</div><div><h3>Analise suas reuniões</h3><p>Envie sua gravação e receba uma<br/>análise completa com insights<br/>de performance.</p><button><b>↥</b>Selecionar arquivo</button><small>MP4, MOV ou WEBM</small></div></div><div className={`${styles.cardMedia} ${styles.analysisMedia}`} style={{backgroundImage:`url(${analysisRef})`}}/><div className={styles.capture}><p>CAPTURE.<br/>ANALISE.<br/>EVOLUA.</p><i/><span>Do seu smartphone<br/>para insights reais.</span></div></article>
+    <article className={`${styles.card} ${styles.analysisCard}`} style={{backgroundImage:"linear-gradient(90deg,rgba(5,20,31,.92) 0%,rgba(5,20,31,.54) 34%,rgba(5,20,31,.10) 64%,rgba(5,20,31,.26) 100%),url('/skills-analysis-phone.webp')",backgroundSize:'cover',backgroundPosition:'center center',backgroundRepeat:'no-repeat'}}><div className={styles.analysisCopy}><div className={styles.cameraIcon}>▣</div><div><h3>Analise suas reuniões</h3><p>Envie sua gravação e receba uma<br/>análise completa com insights<br/>de performance.</p><button><b>↥</b>Selecionar arquivo</button><small>MP4, MOV ou WEBM</small></div></div><div/><div className={styles.capture}><p>CAPTURE.<br/>ANALISE.<br/>EVOLUA.</p><i/><span>Do seu smartphone<br/>para insights reais.</span></div></article>
   </section>
 </main>}
