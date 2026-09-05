@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Sidebar from '@/components/Sidebar';
 import heroRef from '@/lib/skills-ref-hero';
 import insightsRef from '@/lib/skills-ref-insights';
 import meetingRef from '@/lib/skills-ref-meeting';
@@ -11,6 +12,7 @@ const metrics=[['Comunicação',88],['Clareza',91],['Escuta',84],['Objetividade'
 function MetricRing({label,target,index}:{label:string;target:number;index:number}){const[value,setValue]=useState(0);useEffect(()=>{let raf=0;const started=performance.now()+index*55,duration=1200;const tick=(now:number)=>{const p=Math.max(0,Math.min(1,(now-started)/duration));setValue(Math.round(target*(1-Math.pow(1-p,3))));if(p<1)raf=requestAnimationFrame(tick)};raf=requestAnimationFrame(tick);return()=>cancelAnimationFrame(raf)},[target,index]);return <div className={styles.metric}><div className={styles.metricRing} style={{'--value':`${value*3.6}deg`} as React.CSSProperties}><strong>{value}</strong></div><span>{label}</span></div>}
 
 export default function SkillsPage(){const[score,setScore]=useState(0);useEffect(()=>{let raf=0;const start=performance.now();const tick=(now:number)=>{const p=Math.min(1,(now-start)/1300);setScore(Math.round(82*(1-Math.pow(1-p,3))));if(p<1)raf=requestAnimationFrame(tick)};raf=requestAnimationFrame(tick);return()=>cancelAnimationFrame(raf)},[]);return <main className={styles.page}>
+  <Sidebar />
   <header className={styles.skillsHeader}>
     <h1>Skills</h1>
     <div className={styles.search}><span>⌕</span><p>Buscar reunião, pessoa ou gravação</p><kbd>⌘ K</kbd></div>
