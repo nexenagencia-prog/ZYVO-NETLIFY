@@ -3,3 +3,4 @@ Trigger Netlify production deploy after linking repository — 2026-09-05.
 Trigger Netlify production deploy after Git contributor verification — 2026-09-05.
 Trigger Netlify production deploy after repository changed to PUBLIC — 2026-09-05 15:13 BRT.
 FORCE NETLIFY PRODUCTION DEPLOY — 2026-09-05 15:14 BRT.
+FORCE DEPLOY: exact uploaded phone image inside Analise suas reuniões card — 2026-09-05 19:10 BRT.
