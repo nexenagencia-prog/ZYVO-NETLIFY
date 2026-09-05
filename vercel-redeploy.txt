@@ -1,1 +1,2 @@
 Force production deployment after ZYVO home, typography and sidebar corrections.
+Trigger Netlify production deploy after linking repository — 2026-09-05.
