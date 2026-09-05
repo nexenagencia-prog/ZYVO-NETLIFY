@@ -7,7 +7,7 @@ test('skills page keeps the reference dashboard content and animation',()=>{cons
 
 test('skills keeps its faithful reference header and the fixed global sidebar',()=>{const page=read('src/app/skills/page.tsx');assert.match(page,/className={styles\.skillsHeader}/);assert.match(page,/>Skills</);assert.match(page,/Buscar reunião, pessoa ou gravação/);assert.match(page,/Plano Pro/);assert.doesNotMatch(page,/<Topbar\s*\/>/);assert.match(page,/<Sidebar\s*\/>/)});
 
-test('all four reference images stay assigned to their correct cards',()=>{const page=read('src/app/skills/page.tsx');for(const asset of ['skills-ref-hero','skills-ref-insights','skills-ref-meeting'])assert.match(page,new RegExp(asset));assert.match(page,/(skills-ref-analysis|skills-analysis-phone\.webp)/);assert.match(page,/heroMedia/);assert.match(page,/insightMedia/);assert.match(page,/meetingMedia/);assert.match(page,/(analysisMedia|skills-analysis-phone\.webp)/)});
+test('all four reference images stay assigned to their correct cards',()=>{const page=read('src/app/skills/page.tsx');for(const asset of ['skills-ref-hero','skills-ref-insights','skills-ref-meeting','skills-ref-analysis'])assert.match(page,new RegExp(asset));assert.match(page,/heroMedia/);assert.match(page,/insightMedia/);assert.match(page,/meetingMedia/);assert.match(page,/analysisRef/)});
 
 test('desktop board is fully visible without bottom clipping',()=>{const css=read('src/app/skills/skills.module.css');assert.match(css,/height:100dvh/);assert.match(css,/overflow:hidden/);assert.match(css,/grid-template-rows:minmax\(0,1\.4fr\) minmax\(0,1fr\)/);assert.match(css,/height:calc\(100dvh - var\(--header-height\) - 28px\)/);assert.match(css,/min-height:0/);assert.match(css,/@media\(max-height:900px\)/)});
 
