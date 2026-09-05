@@ -28,19 +28,26 @@ export default function Topbar() {
   };
   const active = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
 
-  return <header className="topbar">
-    <Link href="/" className="wordmark" aria-label="ZYVO início">{topbar?.title || 'ZYVO'}</Link>
-    <form className="search-box" onSubmit={submit}>
-      <Icon><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></Icon>
-      <input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder={label('searchPlaceholder','Buscar reuniões ou pessoas')} aria-label="Buscar reuniões ou pessoas" />
-      <span className="shortcut">⌘ K</span>
-    </form>
-    <nav className="topnav" aria-label="Navegação principal">
-      <Link className={active('/') ? 'active' : ''} href="/">{label('homeLabel','Início')}</Link>
-      <Link className={active('/skills') ? 'active' : ''} href="/skills">{label('skillsLabel','Skills')}</Link>
-      <Link className={active('/agenda') ? 'active' : ''} href="/agenda">{label('agendaLabel','Agenda')}</Link>
-      <Link className={active('/planos') ? 'active' : ''} href="/planos">{label('plansLabel','Planos e preços')}</Link>
-    </nav>
-    <Link href="/login" className="access-button"><span>{label('accessLabel','Acessar')}</span><Icon><path d="M5 12h13M14 7l5 5-5 5"/></Icon></Link>
-  </header>;
+  return <>
+    <header className="topbar" style={{position:'fixed',top:0,left:0,right:0,zIndex:25}}>
+      <Link href="/" className="wordmark" aria-label="ZYVO início">{topbar?.title || 'ZYVO'}</Link>
+      <form className="search-box" onSubmit={submit}>
+        <Icon><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></Icon>
+        <input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder={label('searchPlaceholder','Buscar reuniões ou pessoas')} aria-label="Buscar reuniões ou pessoas" />
+        <span className="shortcut">⌘ K</span>
+      </form>
+      <nav className="topnav" aria-label="Navegação principal">
+        <Link className={active('/') ? 'active' : ''} href="/">{label('homeLabel','Início')}</Link>
+        <Link className={active('/skills') ? 'active' : ''} href="/skills">{label('skillsLabel','Skills')}</Link>
+        <Link className={active('/agenda') ? 'active' : ''} href="/agenda">{label('agendaLabel','Agenda')}</Link>
+        <Link className={active('/planos') ? 'active' : ''} href="/planos">{label('plansLabel','Planos e preços')}</Link>
+      </nav>
+      <Link href="/login" className="access-button"><span>{label('accessLabel','Acessar')}</span><Icon><path d="M5 12h13M14 7l5 5-5 5"/></Icon></Link>
+    </header>
+    <div className="topbar-spacer" aria-hidden="true" />
+    <style jsx global>{`
+      .topbar-spacer{height:104px;flex:0 0 104px}
+      @media(max-width:900px){.topbar-spacer{height:90px;flex-basis:90px}}
+    `}</style>
+  </>;
 }
