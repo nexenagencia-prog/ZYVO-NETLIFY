@@ -23,6 +23,7 @@
   display:flex;
   align-items:center;
   min-height:51px;
+  margin-top:72px;
   padding:0 12px;
   gap:11px;
 }
@@ -53,8 +54,8 @@
 .profileRole{display:block;margin-top:3px;color:rgba(226,236,244,.4);font-size:9.5px;font-weight:330}
 .fileInput{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .nav{margin-top:20px;width:100%;display:flex;flex-direction:column;gap:7px}
-.navItem{position:relative;width:46px;min-width:46px;height:46px;display:flex;align-items:center;color:rgba(236,239,246,.74);border-radius:50%;margin:0 12px;overflow:hidden;transition:width .28s cubic-bezier(.22,.75,.2,1),background-color .18s ease,color .18s ease,box-shadow .18s ease,border-radius .28s ease}
-.expanded .navItem{width:194px;border-radius:15px}
+.navItem{position:relative;width:46px;min-width:46px;height:46px;display:flex;align-items:center;color:rgba(236,239,246,.74);border-radius:50%;margin:0 auto;overflow:hidden;transition:width .28s cubic-bezier(.22,.75,.2,1),background-color .18s ease,color .18s ease,box-shadow .18s ease,border-radius .28s ease}
+.expanded .navItem{width:194px;margin:0 12px;border-radius:15px}
 .navItem:hover{color:#fff;background:rgba(255,255,255,.04)}
 .selected{color:#151522;background:linear-gradient(145deg,#ff9fce,#f58bc3 68%,#e97eb5);box-shadow:0 8px 20px rgba(238,124,182,.19),inset 0 1px 0 rgba(255,255,255,.38)}
 .selected:hover{color:#11121b;background:linear-gradient(145deg,#ffa9d3,#f790c5 68%,#eb81b8)}
@@ -62,10 +63,10 @@
 .itemIcon svg{width:20px;height:20px;display:block;stroke-width:1.2}
 .itemLabel{white-space:nowrap;opacity:0;transform:translateX(-5px);font-size:11.5px;font-weight:330;letter-spacing:-.006em;transition:opacity .2s ease,transform .28s cubic-bezier(.22,.75,.2,1)}
 .expanded .itemLabel{opacity:1;transform:translateX(0)}
-.bottomControl{margin-top:auto;height:46px;display:flex;align-items:center;padding:0 12px}
+.bottomControl{margin-top:auto;height:46px;display:flex;align-items:center;justify-content:center;padding:0}
 .toggleButton{width:46px;height:46px;border:0;border-radius:50%;background:transparent;color:rgba(232,237,244,.72);display:grid;place-items:center;cursor:pointer;transition:background-color .18s ease,color .18s ease,transform .28s ease}
 .toggleButton:hover{background:rgba(255,255,255,.04);color:#fff}
 .toggleButton svg{width:17px;height:17px;stroke-width:1.2;transition:transform .3s cubic-bezier(.22,.75,.2,1)}
 .expanded .toggleButton svg{transform:rotate(180deg)}
-@media(max-width:620px){.unifiedRail{width:64px;left:5px}.expanded{width:min(222px,82vw)}.profileRow{padding:0 9px}.profileVisual{width:44px;min-width:44px}.profileRow :global(.rail-avatar){width:42px;height:42px;min-width:42px;min-height:42px;flex-basis:42px}.navItem{margin:0 9px}}
+@media(max-width:620px){.unifiedRail{width:64px;left:5px}.expanded{width:min(222px,82vw)}.profileRow{margin-top:68px;padding:0 9px}.profileVisual{width:44px;min-width:44px}.profileRow :global(.rail-avatar){width:42px;height:42px;min-width:42px;min-height:42px;flex-basis:42px}.navItem{margin:0 auto}.expanded .navItem{margin:0 9px}}
 @media(prefers-reduced-motion:reduce){.unifiedRail,.profileMeta,.navItem,.itemLabel,.toggleButton svg{transition:none}}
